@@ -1,0 +1,107 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance Tracker</title>
+
+    <!-- Inline CSS -->
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .imp {
+            font-family: Arial, Helvetica, sans-serif;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #c1c174;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        header h1 {
+            font-size: 4em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        header h2 {
+            font-size: 1.7em;
+            color: rgb(165, 102, 165);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .intro-text {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MIT-WPU UNIVERSITY</h1>
+            <h2>SMART ATTENDANCE TRACKER</h2>
+        </header>
+        <div class="content">
+            <p class="intro-text">[A system designed to help manage student attendance easily and efficiently]</p>
+            <a href="{% url 'student_list' %}" class="cta-button">Go to Student List</a>
+            <a href="{% url 'course_list' %}" class="cta-button">Go to Course List</a>
+            <a href="{% url 'attendance_list' %}" class="cta-button">Go to Attendance List</a>
+        </div>
+    </div>
+    <div class="imp">
+        <p>Django Learn By Prof. BalaGangadhar Reddy Sir. Thankyouu!</p>
+    </div>
+</body>
+</html>

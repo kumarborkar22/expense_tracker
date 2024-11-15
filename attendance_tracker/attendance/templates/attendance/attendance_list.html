@@ -1,0 +1,109 @@
+<!-- attendance_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance List</title>
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-links a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9em;
+        }
+
+        .action-links a:hover {
+            color: #45a049;
+        }
+
+        .empty-message {
+            color: #888;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ATTENDANCE LIST</h2>
+        <a href="{% url 'attendance_create' %}">Add New Attendance</a>
+        <ul>
+            {% for attendance in attendances %}
+                <li>
+                    {{ attendance.student.name }} - {{ attendance.course.name }} - {{ attendance.date }} - {{ attendance.status }}
+                    <div class="action-links">
+                        <a href="{% url 'attendance_update' attendance.pk %}">Edit</a>
+                        <a href="{% url 'attendance_delete' attendance.pk %}">Delete</a>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="empty-message">No attendance records available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

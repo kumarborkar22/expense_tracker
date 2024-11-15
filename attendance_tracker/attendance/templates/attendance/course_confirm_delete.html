@@ -1,0 +1,8 @@
+<!-- course_confirm_delete.html -->
+<h2>Are you sure you want to delete this course?</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, Delete</button>
+    <a href="{% url 'course_list' %}">Cancel</a>
+</form>
