@@ -1,0 +1,85 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker</title>
+</head>
+<body>
+    <h1>Expense List</h1>
+    <a href="{% url 'add_expense' %}">Add Expense</a>
+    <ul>
+        {% for expense in expenses %}
+            <li>{{ expense.date }} - {{ expense.title }}: ${{ expense.amount }} ({{ expense.category }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        .expense-list {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .amount {
+            font-weight: bold;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="expense-list">
+        <h2 class="text-center">Expense Tracker</h2>
+        <a href="{% url 'add_expense' %}" class="btn btn-primary my-3">+ Add Expense</a>
+        
+        {% if expenses %}
+            <ul class="list-group">
+                {% for expense in expenses %}
+                    <li class="list-group-item">
+                        <div>
+                            <strong>{{ expense.title }}</strong> <br>
+                            <small class="text-muted">{{ expense.date }} | {{ expense.category }}</small>
+                        </div>
+                        <span class="amount">${{ expense.amount }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-center text-muted">No expenses recorded yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Bootstrap JS (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
